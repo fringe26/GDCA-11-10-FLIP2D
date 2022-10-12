@@ -24,6 +24,7 @@ public class BulletScript : MonoBehaviour
             _rb.AddForce(Vector2.left * _bulletForce, ForceMode2D.Impulse);
         }
         
+        Destroy(gameObject,2f);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -32,7 +33,7 @@ public class BulletScript : MonoBehaviour
         {
             Debug.Log("Bullet touched EnemyBox");
             other.transform.GetComponent<EnemyBoxScript>().GetDamage(_bulletDamage);
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }
